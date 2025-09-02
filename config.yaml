@@ -8,7 +8,10 @@ theme: 'PaperMod'
 enableEmoji: true
 enableGitInfo: true
 enableRobotsTXT: true
-paginate: 10
+
+# 分页配置
+pagination:
+  pagerSize: 10
 
 # 导航菜单
 menu:
@@ -36,7 +39,7 @@ params:
   title: "晨知夜行"
   description: "分享技术心得与成长历程"
   keywords: [博客, 技术, 编程, 开发]  # SEO关键词，请根据您的内容修改
-  author:  # 请修改为您的真实姓名
+  author:   # 请修改为您的真实姓名
   
   # 页面功能
   ShowReadingTime: true
@@ -70,7 +73,9 @@ params:
     - name: github
       url: "https://github.com/wujiachen0727"  # 请修改为您的GitHub地址
     - name: email
-      url: "wujiachen260727@126.com"  # 请修改为您的邮箱
+      url: "mailto:wujiachen260727@126.com"  # 请修改为您的邮箱
+    # - name: twitter
+    #   url: "https://twitter.com/username"
     # - name: linkedin
     #   url: "https://linkedin.com/in/username"
 
