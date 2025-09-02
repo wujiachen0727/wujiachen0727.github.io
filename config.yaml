@@ -1,0 +1,53 @@
+baseURL: 'https://wujiachen0727.github.io'
+languageCode: 'zh-cn'
+title: '晨知夜行'
+theme: 'PaperMod'
+
+enableEmoji: true
+enableGitInfo: true
+defaultContentLanguage: 'zh-cn'
+
+pagination:
+  pagerSize: 10
+
+menu:
+  main:
+    - identifier: home
+      name: 🏠 首页
+      url: /
+      weight: 10
+    - identifier: posts
+      name: 📝 文章
+      url: /posts/
+      weight: 20
+    - identifier: archives
+      name: 📚 归档
+      url: /archives/
+      weight: 30
+
+params:
+  env: production
+  title: "晨知夜行"
+  description: "分享技术心得与成长历程"
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  homeInfoParams:
+    Title: "欢迎来到晨知夜行 👋"
+    Content: "分享技术心得与成长历程的个人博客"
+
+markup:
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    style: github
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
