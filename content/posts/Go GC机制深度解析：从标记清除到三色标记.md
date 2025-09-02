@@ -1,10 +1,10 @@
 ---
-title: Go GC机制深度解析：从标记清除到三色标记
-date: 2025-09-02 16:05:08
-tags:
-categories:
-description:
-publish: false
+title: "Go GC机制深度解析：从标记清除到三色标记"
+date: 2025-09-02T16:05:08+08:00
+draft: false
+tags: ["Go", "垃圾回收", "GC", "技术"]
+categories: ["编程语言"]
+description: "深入解析Go语言的垃圾回收机制，从传统的标记清除算法到现代的三色标记算法的演进过程"
 ---
 
 # Go GC机制深度解析：从标记清除到三色标记
