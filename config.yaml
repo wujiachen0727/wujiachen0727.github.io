@@ -1,15 +1,16 @@
-baseURL: 'https://wujiachen0727.github.io'
+# 基础配置
+baseURL: 'https://wujiachen0727.github.io'  # 替换为您的实际地址
 languageCode: 'zh-cn'
 title: '晨知夜行'
 theme: 'PaperMod'
 
+# 功能开关
 enableEmoji: true
 enableGitInfo: true
-defaultContentLanguage: 'zh-cn'
+enableRobotsTXT: true
+paginate: 10
 
-pagination:
-  pagerSize: 10
-
+# 导航菜单
 menu:
   main:
     - identifier: home
@@ -24,30 +25,124 @@ menu:
       name: 📚 归档
       url: /archives/
       weight: 30
+    - identifier: search
+      name: 🔍 搜索
+      url: /search/
+      weight: 40
 
+# 主题参数
 params:
   env: production
   title: "晨知夜行"
   description: "分享技术心得与成长历程"
+  keywords: [博客, 技术, 编程, 开发]  # SEO关键词，请根据您的内容修改
+  author:  # 请修改为您的真实姓名
+  
+  # 页面功能
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
-  homeInfoParams:
-    Title: "欢迎来到晨知夜行 👋"
-    Content: "分享技术心得与成长历程的个人博客"
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
 
+  # 搜索功能
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+  # 社交链接（可选，请根据需要修改或删除）
+  socialIcons:
+    - name: github
+      url: "https://github.com/wujiachen0727"  # 请修改为您的GitHub地址
+    - name: email
+      url: "wujiachen260727@126.com"  # 请修改为您的邮箱
+    # - name: linkedin
+    #   url: "https://linkedin.com/in/username"
+
+  # 首页信息
+  profileMode:
+    enabled: false  # 设为true启用个人资料模式
+    title: "欢迎来到我的博客"
+    subtitle: "分享技术心得与成长历程"
+    imageUrl: "/images/avatar.jpg"  # 头像图片路径（可选）
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: "我的头像"
+    buttons:
+      - name: 文章
+        url: posts
+      - name: 标签
+        url: tags
+
+  # 统计分析（可选配置）
+  analytics:
+  # Google Analytics（如需使用请取消注释并填入您的ID）
+  # google:
+  #   SiteVerificationTag: "XYZabc"  # Google Search Console验证标签
+  # 百度统计（如需使用请取消注释并填入您的ID）
+  # baidu: "your-baidu-analytics-id"
+
+# 代码高亮配置
 markup:
   highlight:
     noClasses: false
     codeFences: true
     guessSyntax: true
     lineNos: true
+    lineNumbersInTable: false
     style: github
+  goldmark:
+    renderer:
+      unsafe: true
 
+# 性能优化配置
+minify:
+  disableCSS: false
+  disableHTML: false
+  disableJS: false
+  disableJSON: false
+  disableSVG: false
+  disableXML: false
+
+# 图片处理配置
+imaging:
+  resampleFilter: "lanczos"
+  quality: 85
+  anchor: "smart"
+
+# 缓存配置
+caches:
+  getjson:
+    maxAge: "10m"
+  getcsv:
+    maxAge: "10m"
+  images:
+    maxAge: "1h"
+
+# 输出格式
 outputs:
   home:
     - HTML
     - RSS
-    - JSON
+    - JSON  # 搜索功能需要
+
+# 分类法配置
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
