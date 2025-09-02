@@ -15,33 +15,26 @@ hasCJKLanguage: true
 pagination:
   pagerSize: 10
 
-# 导航菜单
-menu:
-  main:
-    - identifier: home
-      name: 🏠 首页
-      url: /
-      weight: 10
-    - identifier: posts
-      name: 📝 文章
-      url: /posts/
-      weight: 20
-    - identifier: archives
-      name: 📚 归档
-      url: /archives/
-      weight: 30
-    - identifier: search
-      name: 🔍 搜索
-      url: /search/
-      weight: 40
+
 
 # 主题参数
 params:
   env: production
   title: "晨知夜行"
-  description: "分享技术心得与成长历程"
-  keywords: [博客, 技术, 编程, 开发]  # SEO关键词，请根据您的内容修改
-  author:   # 请修改为您的真实姓名
+  description: "专注后端技术深度实践，记录从工程师到技术专家的成长历程"
+  keywords: [Go语言, 后端架构, 分布式系统, 云原生, 微服务, 高并发, 系统设计, 技术管理, Python, AI工程化]
+  author: "吴嘉晨"
+  images: ["/images/site-feature-image.png"]
+  
+  # 网站元信息
+  DateFormat: "2006年01月02日"
+  defaultTheme: "auto"
+  disableThemeToggle: false
+  
+  # 中文博客优化
+  ShowFullTextinRSS: true
+  ShowPostNavLinks: true
+  ShowCodeCopyButtons: true
   
   # 页面功能
   ShowReadingTime: true
@@ -55,6 +48,15 @@ params:
   disableSpecial1stPost: false
   disableScrollToTop: false
   comments: false
+  # 如果要启用评论，可以选择以下之一：
+  # giscus:
+  #   repo: "wujiachen0727/wujiachen0727.github.io"
+  #   repoId: "your-repo-id"
+  #   category: "General"
+  #   categoryId: "your-category-id"
+  # utterances:
+  #   repo: "wujiachen0727/wujiachen0727.github.io"
+  #   issueTerm: "pathname"
   hidemeta: false
   hideSummary: false
   showtoc: false
@@ -81,20 +83,7 @@ params:
     # - name: linkedin
     #   url: "https://linkedin.com/in/username"
 
-  # 首页信息
-  profileMode:
-    enabled: false  # 设为true启用个人资料模式
-    title: "欢迎来到我的博客"
-    subtitle: "分享技术心得与成长历程"
-    imageUrl: "/images/avatar.jpg"  # 头像图片路径（可选）
-    imageWidth: 120
-    imageHeight: 120
-    imageTitle: "我的头像"
-    buttons:
-      - name: 文章
-        url: posts
-      - name: 标签
-        url: tags
+
 
   # 统计分析（可选配置）
   analytics:
@@ -113,9 +102,29 @@ markup:
     lineNos: true
     lineNumbersInTable: false
     style: github
+    anchorLineNos: false
+    codeFences: true
+    hl_Lines: ""
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    tabWidth: 4
   goldmark:
     renderer:
       unsafe: true
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer: true
+  tableOfContents:
+    endLevel: 3
+    ordered: false
+    startLevel: 2
 
 # 性能优化配置
 minify:
@@ -147,9 +156,60 @@ outputs:
     - HTML
     - RSS
     - JSON  # 搜索功能需要
+  page:
+    - HTML
+  section:
+    - HTML
+    - RSS
+
+# 网站地图配置
+sitemap:
+  changefreq: "weekly"
+  filename: "sitemap.xml"
+  priority: 0.5
+
+# RSS配置
+rss:
+  limit: 20
 
 # 分类法配置
 taxonomies:
   category: categories
   tag: tags
   series: series
+
+# 多语言配置
+languages:
+  zh:
+    languageName: "中文"
+    weight: 1
+    params:
+      homeInfoParams:
+        Title: "晨知夜行 - 后端技术深度实践"
+        Content: "深耕Go语言生态，构建高性能分布式系统，探索云原生架构与AI工程化实践"
+    menu:
+      main:
+        - identifier: home
+          name: 🏠 首页
+          url: /
+          weight: 10
+        - identifier: posts
+          name: 📝 文章
+          url: /posts/
+          weight: 20
+        - identifier: archives
+          name: 📚 归档
+          url: /archives/
+          weight: 30
+        - identifier: search
+          name: 🔍 搜索
+          url: /search/
+          weight: 40
+        - identifier: series
+          name: 📖 系列
+          url: /series/
+          weight: 45
+        - identifier: about
+          name: 👤 关于
+          url: /about/
+          weight: 50
