@@ -1,6 +1,7 @@
 # 基础配置
-baseURL: 'https://wujiachen0727.github.io'  # 替换为您的实际地址
+baseURL: 'https://wujiachen0727.github.io'
 languageCode: 'zh-cn'
+defaultContentLanguage: 'zh'
 title: '晨知夜行'
 theme: 'PaperMod'
 
@@ -8,6 +9,7 @@ theme: 'PaperMod'
 enableEmoji: true
 enableGitInfo: true
 enableRobotsTXT: true
+hasCJKLanguage: true
 
 # 分页配置
 pagination:
