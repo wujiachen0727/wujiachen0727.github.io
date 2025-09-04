@@ -1,0 +1,30 @@
+{{- if (.Param "ShowBreadCrumbs") -}}
+<div class="breadcrumbs">
+    <a href="{{ "" | absLangURL }}">{{ i18n "home" | default "主页" }}</a>
+    
+    {{- if .IsPage -}}
+        {{- if eq .Section "posts" -}}
+            {{- print "&nbsp;»&nbsp;" | safeHTML -}}<a href="{{ "/posts/" | absLangURL }}">{{ i18n "Posts" | default "文章" }}</a>
+        {{- else if eq .Section "categories" -}}
+            {{- print "&nbsp;»&nbsp;" | safeHTML -}}<a href="{{ "/categories/" | absLangURL }}">{{ i18n "Categories" | default "分类" }}</a>
+        {{- else if eq .Section "tags" -}}
+            {{- print "&nbsp;»&nbsp;" | safeHTML -}}<a href="{{ "/tags/" | absLangURL }}">{{ i18n "Tags" | default "标签" }}</a>
+        {{- end -}}
+    {{- else if .IsSection -}}
+        {{- if eq .Section "posts" -}}
+            {{- print "&nbsp;»&nbsp;" | safeHTML -}}{{ i18n "Posts" | default "文章" }}
+        {{- else if eq .Type "categories" -}}
+            {{- print "&nbsp;»&nbsp;" | safeHTML -}}{{ i18n "Categories" | default "分类" }}
+        {{- else if eq .Type "tags" -}}
+            {{- print "&nbsp;»&nbsp;" | safeHTML -}}{{ i18n "Tags" | default "标签" }}
+        {{- else -}}
+            {{- print "&nbsp;»&nbsp;" | safeHTML -}}{{ .Title }}
+        {{- end -}}
+    {{- else if .IsHome -}}
+        {{- /* 首页不显示面包屑 */ -}}
+    {{- else -}}
+        {{- /* 其他页面如关于页面 */ -}}
+        {{- print "&nbsp;»&nbsp;" | safeHTML -}}{{ .Title }}
+    {{- end -}}
+</div>
+{{- end -}}

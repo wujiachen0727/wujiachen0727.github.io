@@ -1,7 +1,7 @@
-# 基础配置
+# Hugo PaperMod 主题配置
 baseURL: 'https://wujiachen0727.github.io'
 languageCode: 'zh-cn'
-defaultContentLanguage: 'zh'
+defaultContentLanguage: 'zh-cn'
 title: '晨知夜行'
 theme: 'PaperMod'
 
@@ -15,28 +15,12 @@ hasCJKLanguage: true
 pagination:
   pagerSize: 10
 
-
-
 # 主题参数
 params:
-  env: production
-  title: "晨知夜行"
-  description: "专注后端技术深度实践，记录从工程师到技术专家的成长历程"
-  keywords: [Go语言, 后端架构, 分布式系统, 云原生, 微服务, 高并发, 系统设计, 技术管理, Python, AI工程化]
-  author: "吴嘉晨"
-  images: ["/images/site-feature-image.png"]
+  mainSections:
+    - posts
   
-  # 网站元信息
-  DateFormat: "2006年01月02日"
-  defaultTheme: "auto"
-  disableThemeToggle: false
-  
-  # 中文博客优化
-  ShowFullTextinRSS: true
-  ShowPostNavLinks: true
-  ShowCodeCopyButtons: true
-  
-  # 页面功能
+  # 首页配置
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
@@ -48,53 +32,58 @@ params:
   disableSpecial1stPost: false
   disableScrollToTop: false
   comments: false
-  # 如果要启用评论，可以选择以下之一：
-  # giscus:
-  #   repo: "wujiachen0727/wujiachen0727.github.io"
-  #   repoId: "your-repo-id"
-  #   category: "General"
-  #   categoryId: "your-category-id"
-  # utterances:
-  #   repo: "wujiachen0727/wujiachen0727.github.io"
-  #   issueTerm: "pathname"
   hidemeta: false
   hideSummary: false
   showtoc: false
   tocopen: false
 
-  # 搜索功能
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
+  # 网站配置
+  featuredImageField: image
+  rssFullContent: false
+  favicon: /favicon.ico
+  footer:
+    since: 2024
+    customText: "专注后端技术深度实践，记录从工程师到技术专家的成长历程"
+  
+  # 作者信息 - 使用简单字符串格式
+  author: "吴嘉晨"
 
-  # 社交链接（可选，请根据需要修改或删除）
+  dateFormat: "2006年01月02日"
+  
+  # 社交链接
   socialIcons:
     - name: github
-      url: "https://github.com/wujiachen0727"  # 请修改为您的GitHub地址
+      url: "https://github.com/wujiachen0727"
     - name: email
-      url: "mailto:wujiachen260727@126.com"  # 请修改为您的邮箱
-    # - name: twitter
-    #   url: "https://twitter.com/username"
-    # - name: linkedin
-    #   url: "https://linkedin.com/in/username"
+      url: "mailto:wujiachen260727@126.com"
 
+  article:
+    math: false
+    toc: true
+    readingTime: true
+    license:
+      enabled: false
 
+  comments:
+    enabled: false
 
-  # 统计分析（可选配置）
-  analytics:
-  # Google Analytics（如需使用请取消注释并填入您的ID）
-  # google:
-  #   SiteVerificationTag: "XYZabc"  # Google Search Console验证标签
-  # 百度统计（如需使用请取消注释并填入您的ID）
-  # baidu: "your-baidu-analytics-id"
+  opengraph:
+    twitter:
+      # Your Twitter username
+      site:
+      card: summary_large_image
+
+  defaultImage:
+    opengraph:
+      enabled: false
+      local: false
+      src:
 
 # 代码高亮配置
 markup:
+  goldmark:
+    renderer:
+      unsafe: true
   highlight:
     noClasses: false
     codeFences: true
@@ -102,29 +91,84 @@ markup:
     lineNos: true
     lineNumbersInTable: false
     style: github
-    anchorLineNos: false
-    codeFences: true
-    hl_Lines: ""
-    lineAnchors: ""
-    lineNoStart: 1
-    lineNos: false
-    lineNumbersInTable: true
-    tabWidth: 4
-  goldmark:
-    renderer:
-      unsafe: true
-    extensions:
-      definitionList: true
-      footnote: true
-      linkify: true
-      strikethrough: true
-      table: true
-      taskList: true
-      typographer: true
   tableOfContents:
-    endLevel: 3
-    ordered: false
+    endLevel: 4
+    ordered: true
     startLevel: 2
+
+# 分类法配置
+taxonomies:
+  category: categories
+  tag: tags
+
+# 多语言配置
+languages:
+  zh-cn:
+    languageName: 中文
+    title: 晨知夜行
+    description: 专注后端技术深度实践，记录从工程师到技术专家的成长历程
+    weight: 1
+    menu:
+      main:
+        - identifier: home
+          name: 🏠 首页
+          url: /
+          weight: -100
+          params:
+            newTab: false
+            icon: home
+        - identifier: posts
+          name: 📝 文章
+          url: /posts/
+          weight: -90
+          params:
+            icon: archives
+        - identifier: archives
+          name: 📚 归档
+          url: /archives/
+          weight: -80
+          params:
+            icon: archives
+        - identifier: categories
+          name: 🏷️ 分类
+          url: /categories/
+          weight: -70
+          params:
+            icon: category
+        - identifier: tags
+          name: 🔖 标签
+          url: /tags/
+          weight: -60
+          params:
+            icon: tag
+        - identifier: search
+          name: 🔍 搜索
+          url: /search/
+          weight: -40
+          params:
+            icon: search
+        - identifier: about
+          name: 👤 关于
+          url: /about/
+          weight: -30
+          params:
+            icon: user
+
+# 输出格式
+outputs:
+  home:
+    - HTML
+    - JSON
+  page:
+    - HTML
+  section:
+    - HTML
+
+# 网站地图配置
+sitemap:
+  changefreq: weekly
+  filename: sitemap.xml
+  priority: 0.5
 
 # 性能优化配置
 minify:
@@ -137,79 +181,15 @@ minify:
 
 # 图片处理配置
 imaging:
-  resampleFilter: "lanczos"
+  resampleFilter: lanczos
   quality: 85
-  anchor: "smart"
+  anchor: smart
 
 # 缓存配置
 caches:
   getjson:
-    maxAge: "10m"
+    maxAge: 10m
   getcsv:
-    maxAge: "10m"
+    maxAge: 10m
   images:
-    maxAge: "1h"
-
-# 输出格式
-outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON  # 搜索功能需要
-  page:
-    - HTML
-  section:
-    - HTML
-    - RSS
-
-# 网站地图配置
-sitemap:
-  changefreq: "weekly"
-  filename: "sitemap.xml"
-  priority: 0.5
-
-# RSS配置
-rss:
-  limit: 20
-
-# 分类法配置
-taxonomies:
-  category: categories
-  tag: tags
-  series: series
-
-# 多语言配置
-languages:
-  zh:
-    languageName: "中文"
-    weight: 1
-    params:
-      homeInfoParams:
-        Title: "晨知夜行 - 后端技术深度实践"
-        Content: "深耕Go语言生态，构建高性能分布式系统，探索云原生架构与AI工程化实践"
-    menu:
-      main:
-        - identifier: home
-          name: 🏠 首页
-          url: /
-          weight: 10
-        - identifier: posts
-          name: 📝 文章
-          url: /posts/
-          weight: 20
-        - identifier: archives
-          name: 📚 归档
-          url: /archives/
-          weight: 30
-        - identifier: search
-          name: 🔍 搜索
-          url: /search/
-          weight: 40
-        - identifier: series
-          name: 📖 系列
-          url: /series/
-          weight: 45
-        - identifier: about
-          name: 👤 关于
-          url: /about/
-          weight: 50
+    maxAge: 1h

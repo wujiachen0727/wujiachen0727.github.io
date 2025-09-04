@@ -1,5 +1,18 @@
+# Hugo build outputs
 /public/
 /resources/
 /.hugo_build.lock
-/.idea/
-/技术成长规划2025-2030.md
+
+# Internal docs
+docs/internal/
+
+# Theme backup files
+config-*-backup.yaml
+
+# IDE and editor configs
+.idea/
+.codebuddy/
+.vscode/
+
+# System files
+.DS_Store

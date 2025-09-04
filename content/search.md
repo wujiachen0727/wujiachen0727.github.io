@@ -1,8 +1,6 @@
 ---
-title: "🔍 搜索"
+title: "搜索"
 layout: "search"
-url: "/search/"
-outputs:
-  - html
-  - json
+summary: "search"
+placeholder: "输入关键词..."
 ---
