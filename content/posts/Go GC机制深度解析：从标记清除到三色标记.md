@@ -5,7 +5,9 @@ draft: false
 tags: ["Go语言", "垃圾回收", "性能优化", "底层原理"]
 categories: ["Go语言深度系列"]
 description: "通过实际测试验证Go语言垃圾回收机制，从传统标记清除到现代三色标记算法的性能表现"
+author: "wujiachen"
 ---
+
 ## 写在前面：一个Go开发者的好奇心
 
 说实话，作为一名Go开发者，我一直对Go的垃圾回收机制很好奇。每次看到网上的文章都在说"Go GC很快"、"三色标记算法很优秀"，但这些到底是什么意思呢？
@@ -694,5 +696,5 @@ go tool pprof -base http://localhost:6060/debug/pprof/heap \
 
 ---
 
-*测试环境：Go 1.22, macOS ARM64, 48GB内存*  
-*完整代码：[GitHub - go-gc-experiments](https://github.com/wujiachen0727/go-gc-experiments)*
+> **转载请注明出处**：[wujiachen0727.github.io](https://wujiachen0727.github.io)  
+> **完整代码**：[GitHub实验代码](https://github.com/wujiachen0727/wujiachen0727.github.io/tree/main/experiments/go-gc-experiments)
