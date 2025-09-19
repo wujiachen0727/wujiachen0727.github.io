@@ -3,9 +3,6 @@
 /resources/
 /.hugo_build.lock
 
-# Internal docs
-docs/internal/
-
 # Theme backup files
 config-*-backup.yaml
 
@@ -16,3 +13,7 @@ config-*-backup.yaml
 
 # System files
 .DS_Store
+
+# Temporary development directories
+drafts/
+experiments/
