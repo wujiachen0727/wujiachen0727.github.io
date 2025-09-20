@@ -711,7 +711,7 @@ graph TD
     D -->|否| H[GOGC=100<br/>默认平衡]
     
     G -->|宽松| I[GOGC=400-800<br/>批处理优化]
-    G -->|严strict| J[GOGC=100-200<br/>数据处理]
+    G -->|严格| J[GOGC=100-200<br/>数据处理]
     
     style E fill:#e3f2fd,stroke:#1976d2
     style F fill:#ffebee,stroke:#d32f2f

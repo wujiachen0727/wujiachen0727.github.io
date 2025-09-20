@@ -67,6 +67,10 @@ params:
   comments:
     enabled: false
 
+  # 启用 Mermaid 图表支持
+  assets:
+    mermaid: true
+
   opengraph:
     twitter:
       # Your Twitter username
@@ -95,6 +99,8 @@ markup:
     endLevel: 4
     ordered: true
     startLevel: 2
+
+
 
 # 分类法配置
 taxonomies:
