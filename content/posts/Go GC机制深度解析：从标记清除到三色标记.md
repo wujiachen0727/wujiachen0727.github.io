@@ -805,7 +805,7 @@ func experimentMonitorGC() {
 
 ---
 
-> **完整代码**：[GitHub实验代码](https://github.com/wujiachen0727/wujiachen0727.github.io/tree/main/experiments/go-gc-experiments)
+> **完整代码**：[GitHub实验代码](https://github.com/wujiachen0727/go-gc-experiments)
 
 ---
 
